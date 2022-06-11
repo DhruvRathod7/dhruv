@@ -5,16 +5,22 @@ import json
   
 path_to_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 image_path = r"invc.png"
+
+
+pytesseract.tesseract_cmd = path_to_tesseract
+
+img = Image.open(image_path)
 pytesseract.tesseract_cmd = path_to_tesseract
 img = Image.open(image_path)
-file = open("invc.txt", "w")
+
+file = open("dm.txt", "w")
 text = pytesseract.image_to_string(img)
 file.write(text)
 
   
 
 
-with open('invoice.txt', 'r') as document:
+with open('dm.txt', 'r') as document:
     answer = {}
    
     for line in document:
