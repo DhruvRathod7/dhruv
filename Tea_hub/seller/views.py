@@ -1,3 +1,4 @@
+import json
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -36,10 +37,16 @@ def put(self, request, id):
 
 
 @api_view(['DELETE'])
-def delete(request, id):
+def delete(request):
     data = {}
+    del_id = json.loads(request.body.decode("utf-8"))
+    if "id" not in del_id:
+            data["success"] = False
+            data["msg"] = "Record ID not provided"
+            data["data"] = []
+            return Response(data=data, status=status.HTTP_401_UNAUTHORIZED)
     try:
-        seller = SellerModel.objects.filter(pk=id)
+        seller = SellerModel.objects.filter(seller_id__in=del_id["id"])
     except SellerModel.DoesNotExist:
         data["success"] = False
         data["msg"] = "Record does not exist"

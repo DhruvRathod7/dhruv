@@ -7,7 +7,7 @@ urlpatterns = [
     path('get/', get),
     path('get/<int:id>', get),
     path('create/',create),
-    path('delete/<int:id>/', delete),
+    path('delete/', delete),
     path('update/<int:id>/', patch),
 
 ]
