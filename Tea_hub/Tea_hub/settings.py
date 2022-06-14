@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'item',
     'seller',
     'customer',
+    'order',
+    'ordered_item',
     
 
 ]
@@ -129,3 +131,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'DATE_INPUT_FORMATS': ["%d-%m-%Y"],    
+}
