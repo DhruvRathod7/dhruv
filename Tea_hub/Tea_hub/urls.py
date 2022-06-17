@@ -24,5 +24,5 @@ urlpatterns = [
     path('seller/',include('seller.urls')),
     path('customer/',include('customer.urls')),
     path('order/',include('order.urls')),
-    path('ordered_item/',include('ordered_item.urls')),
+  
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

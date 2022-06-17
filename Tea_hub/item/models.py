@@ -11,7 +11,7 @@ class ItemModel(models.Model):
     created_by = models.IntegerField(default=1, unique=False)
     deleted = models.IntegerField(default=0, unique=False)
     created_at = models.DateTimeField(default=now)
-
+   
     def __str__(self):
         return f"({self.item_id},{self.item_name})"
 
